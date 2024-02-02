@@ -18,8 +18,6 @@ const HW6 = () => {
         saveState<string>('hw6-editable-span-value', value)
     }
     const restore = () => {
-        // делают студенты
-
     }
 
     return (
@@ -47,8 +45,7 @@ const HW6 = () => {
                     <SuperButton
                         id={'hw6-restore'}
                         onClick={restore}
-                        xType={'secondary'}
-                    >
+                        xType={'secondary'}>
                         Get from ls
                     </SuperButton>
                 </div>
