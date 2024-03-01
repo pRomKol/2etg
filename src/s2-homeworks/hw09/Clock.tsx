@@ -3,12 +3,21 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const getMonth = (monthIndex: number) => {
+    return MONTHS[monthIndex]
+}
+
+const getDayOfWeek = (dayIndex: number) => {
+    return DAYS_OF_WEEK[dayIndex]
+}
+
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
     // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
-console.log(date)
     const start = () => {
         //setShow(true)
 
@@ -30,8 +39,8 @@ console.log(date)
     const stringDate = date.getDate() + ':' + date.getMonth() + ':' + date.getFullYear() || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = date.getDay() || <br/> // пишут студенты
-    const stringMonth = date.getMonth()+1 || <br/> // пишут студенты
+    const stringDay = getDayOfWeek(date.getDay()) || <br/> // пишут студенты
+    const stringMonth = getMonth(date.getMonth()) || <br/> // пишут студенты
 
     return (
         <div className={s.clock}>
