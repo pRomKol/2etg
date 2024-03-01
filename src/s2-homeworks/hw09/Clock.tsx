@@ -19,6 +19,7 @@ function Clock() {
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
     const start = () => {
+        //setTimerId(tickingClock)
         setShow(true)
     }
 
@@ -42,6 +43,10 @@ function Clock() {
     const stringDay = getDayOfWeek(date.getDay()) || <br/> // пишут студенты
     const stringMonth = getMonth(date.getMonth()) || <br/> // пишут студенты
 
+    const setClock = () => {
+        setDate(new Date())
+    }
+    const tickingClock = setInterval(setClock, 1000)
     return (
         <div className={s.clock}>
             <div
