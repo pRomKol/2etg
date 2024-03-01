@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
+import {clearInterval} from "timers";
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -20,15 +21,23 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
     const start = () => {
         //setTimerId(tickingClock)
+        const id: number = +setInterval(() => {
+            setDate(new Date())
+        }, 1000)
+
+        setTimerId(id)
         setShow(true)
     }
 
     const stop = () => {
         setShow(false)
+        clearInterval(timerId)
+        setTimerId(undefined)
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
         setShow(true)
+
     }
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
         setShow(false)
@@ -43,10 +52,6 @@ function Clock() {
     const stringDay = getDayOfWeek(date.getDay()) || <br/> // пишут студенты
     const stringMonth = getMonth(date.getMonth()) || <br/> // пишут студенты
 
-    const setClock = () => {
-        setDate(new Date())
-    }
-    const tickingClock = setInterval(setClock, 1000)
     return (
         <div className={s.clock}>
             <div
