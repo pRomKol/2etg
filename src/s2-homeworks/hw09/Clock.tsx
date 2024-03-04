@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
-import {clearInterval} from "timers";
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
