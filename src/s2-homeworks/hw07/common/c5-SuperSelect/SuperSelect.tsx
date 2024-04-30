@@ -11,7 +11,7 @@ type DefaultSelectPropsType = DetailedHTMLProps<
 >
 
 type SuperSelectPropsType = DefaultSelectPropsType & {
-    options?: any[]
+    options: any[]
     onChangeOption?: (option: any) => void
 }
 
