@@ -1,10 +1,10 @@
 [data-theme='1'] {
-    --color: #000000;
+    --color: #333333;
     --background: #FFFFFF;
 }
 
 [data-theme='2'] {
-    --color: #000000;
+    --color: #333333;
     --background: #DDEEFF;
 }
 
