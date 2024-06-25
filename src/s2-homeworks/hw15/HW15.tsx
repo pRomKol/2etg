@@ -65,10 +65,10 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
+        sendQuery({sort, page: newPage, count})
         setPage(newPage)
         setCount(newCount)
-        sendQuery({sort, page, count})
+
 
 
         //
@@ -80,13 +80,13 @@ const HW15 = () => {
         const sortQuery: {sort?: string} = newSort !== '' ? {sort: newSort} : {}
         const {sort, ...restQueries} = Object.fromEntries(searchParams)
 
-        const newQueries = {...restQueries, ...sortQuery}
-
-        setSearchParams(newQueries)
+        const newQueries = {...sortQuery, ...restQueries, }
         sendQuery(newQueries)
+        setSearchParams(newQueries)
+
 
        // setPage(1) // при сортировке сбрасывать на 1 страницу
-      //  sendQuery({sort: newSort, page, count})
+
     }
 
     useEffect(() => {

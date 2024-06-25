@@ -29,6 +29,7 @@ const SuperSort: React.FC<SuperSortPropsType> = (
 
     const onChangeCallback = () => {
         onChange(pureChange(sort, down, up))
+        console.log(value)
     }
 
     const icon = sort === down

@@ -19,13 +19,14 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     const lastPage = Math.ceil(totalCount / itemsCountForPage)
 
     const onChangeCallback = (_event: any, page: number) => {
-        onChange(page,itemsCountForPage)
+        onChange(page, itemsCountForPage)
+
     }
 
     const onChangeSelect = (event:  ChangeEvent<HTMLSelectElement>) => {
         onChange(page, +event.target.value)
 
-        //event.currentTarget.value
+
 
     }
 
